@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Military Leave Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #212121;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            /* Removed overflow: hidden to enable scrolling */
+        }
+        /* Video background styling */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.05;
+        }
+        .container {
+            width: 400px;
+            max-height: 90vh; /* Ensures the form doesn’t overflow on small screens */
+            overflow-y: auto; /* Allows internal scrolling if needed */
+            background-color: rgba(22, 22, 22, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        .container h2 {
+            text-align: center;
+            color: #c3c3c3;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            color: #555;
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #000000;
+            margin-top: 5px;
+            box-sizing: border-box;
+            color: #000000;
+        }
+        .address-container input[type="text"] {
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007acc;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .submit-button:hover {
+            background-color: #005fa3;
+        }
+        .message {
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+        .logo {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Video background -->
+<video autoplay loop muted class="background-video">
+    <source src="bg2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div class="container">
+    <img src="logo.png" alt="Logo" class="logo">
+    <h2>Military Leave Form</h2>
+
+    <form id="leaveForm">
+        <label for="firstName">Name</label>
+        <input type="text" id="firstName" placeholder="First Name" required>
+        <input type="text" id="lastName" placeholder="Last Name" required>
+
+        <label for="gender">Gender</label>
+        <input type="text" id="gender" placeholder="Gender" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="Enter your age" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required>
+
+        <label for="motherName">Mother's Maiden Name</label>
+        <input type="text" id="motherName" placeholder="" required>
+
+        <label for="relationship">Relationship with Deployed Officer</label>
+        <input type="text" id="relationship" placeholder="" required>
+
+        <label>Address</label>
+        <div class="address-container">
+            <input type="text" placeholder="Street Address" required>
+            <input type="text" placeholder="Street Address Line 2">
+            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="Postal / Zip Code" required>
+            <input type="text" placeholder="Region" required>
+            <input type="text" placeholder="Country" required>
+        </div>
+
+        <label for="phone">Phone No</label>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+
+        <label for="reason">Reason for Leave Request</label>
+        <input type="text" id="reason" placeholder="Reason for leave" required>
+
+        <label for="duration">Duration of Leave Request</label>
+        <input type="text" id="duration" placeholder="" required>
+
+        <button type="button" class="submit-button" onclick="submitForm()">Send</button>
+
+        <div class="message" id="submissionMessage">Your request has been submitted, and you will be contacted shortly.</div>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        document.getElementById("submissionMessage").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
